@@ -1,147 +1,287 @@
 
-import * as React from "react";
-import { Box, Button, Typography, Grid } from "@mui/material";
-import Image from "next/image"; // Import next/image for optimized images
-import heroImage from "../public/image.webp"; // Adjust the path based on where your image is located
-import hero from "../public/hero.jpg"; // Background image
-import styles from "../styles/Hero.module.css"; // Import the CSS module
+// import React from "react";
+// import { Box, Typography, Grid, Button } from "@mui/material";
+// import Image from "next/image";
+// import heroImage from "../public/image.webp"; // Adjust the path based on your image location
+// import hero from "../public/hero.jpg"; // Background image
+// import styles from "../styles/Hero.module.css"; // Import external CSS for custom styles
 
-function Hero() {
+// const Hero: React.FC = () => {
+//   return (
+//     <Box
+//       className={styles["hero-container"]}
+//       sx={{
+//         backgroundImage: `url(${hero.src})`,
+//         backgroundSize: "cover",
+//         backgroundPosition: "center",
+//         display: "flex",
+//         flexDirection: "column",
+//         justifyContent: "center",
+//         alignItems: "center",
+//         minHeight: "100vh",
+        
+//       }}
+//     >
+//       <Box sx={{ width: "100%", px: { xs: 3, lg: 8 }, mx: "auto" }}>
+//         <Grid
+//           container
+//           spacing={6}
+//           alignItems="center"
+//           justifyContent="space-between"
+       
+//         >
+//           {/* Left Side: Title, Text, and Buttons */}
+//           <Grid item xs={12} md={6}>
+//             <Typography
+//               variant="h3"
+//               component="h1"
+//               sx={{
+//                 zIndex:"99",
+//                 fontWeight: 700,
+//                 color: "#3f3c3c",
+//                 mb: 2,
+//                 textAlign: { xs: "center", md: "left" },
+//               }}
+//             >
+//               Welcome to
+//               <Typography
+//                 component="span"
+//                 sx={{
+//                   display: "inline-block",
+//                   fontFamily: "'Monoton', cursive",
+//                   background: "#3895D3",
+//                   WebkitBackgroundClip: "text",
+//                   WebkitTextFillColor: "transparent",
+//                   ml: 1,
+//                   fontSize : "48px"
+//                 }}
+//               >
+//               &nbsp;Istosy
+//               </Typography>
+//             </Typography>
+
+//             <Typography
+//               variant="body1"
+//               sx={{
+//                 color: "gray",
+//                 mb: 4,
+//                 fontWeight: 500,
+//                 textAlign: { xs: "center", md: "left" },
+//               }}
+//             >
+//               Exclusive technology to provide IT solutions.
+//               <br />
+//               Empowering your business with cutting-edge tools and strategies.
+//             </Typography>
+
+//             <Box
+//               sx={{
+//                 display: "flex",
+//                 flexDirection: { xs: "column", sm: "row" },
+//                 gap: 2,
+//                 justifyContent: { xs: "center", md: "flex-start" },
+//               }}
+//             >
+//               <Button
+//                 variant="contained"
+//                 sx={{
+//                   backgroundColor: "#3895D3",
+//                   color: "white",
+//                   px: 5,
+//                   py: 1,
+//                   borderRadius: 1,
+//                   transition: "all 0.3s ease",
+//                   "&:hover": {
+//                     backgroundColor: "white",
+//                     color: "#3895D3",
+//                     border: "2px solid #3895D3",
+//                   },
+//                 }}
+//               >
+//                 Get Started
+//               </Button>
+//               <Button
+//                 variant="contained"
+//                 sx={{
+//                   backgroundColor: "#3895D3",
+//                   color: "white",
+//                   px: 5,
+//                   py: 1,
+//                   borderRadius: 1,
+//                   transition: "all 0.3s ease",
+//                   "&:hover": {
+//                     backgroundColor: "white",
+//                     color: "#3895D3",
+//                     border: "2px solid #3895D3",
+//                   },
+//                 }}
+//               >
+//                 Quick Support
+//               </Button>
+//             </Box>
+//           </Grid>
+
+//           {/* Right Side: Image */}
+//           <Grid item xs={12} md={6}>
+//             <Box sx={{ position: "relative", width: "100%", height: "auto" }}>
+//               <Image
+//                 src={heroImage}
+//                 alt="Hero"
+//                 className={styles.heroImage}
+//                 priority={true}
+//                 placeholder="blur"
+//               />
+//             </Box>
+//           </Grid>
+//         </Grid>
+//       </Box>
+//     </Box>
+//   );
+// };
+
+// export default Hero;
+import React from "react";
+import { Box, Typography, Grid, Button } from "@mui/material";
+import Image from "next/image";
+import heroImage from "../public/image.webp"; // Adjust the path based on your image location
+import hero from "../public/hero.jpg"; // Background image
+import styles from "../styles/Hero.module.css"; // Import external CSS for custom styles
+
+const Hero: React.FC = () => {
   return (
     <Box
       className={styles["hero-container"]}
       sx={{
         backgroundImage: `url(${hero.src})`,
-        backgroundSize: "cover", // Ensure the background image covers the entire area
-        backgroundPosition: "center", // Keep the background centered
+        backgroundSize: "cover",
+        backgroundPosition: "center",
         display: "flex",
-        flexDirection: "column", // Stack elements on top of each other for smaller screens
-        justifyContent: "center", // Vertically center the content
-        alignItems: "center", // Horizontally center the content
-        minHeight: "100vh", // Ensure the container takes up at least the full viewport height
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        minHeight: "100vh",
+        zIndex: 1,
       }}
     >
-      <Grid
-        container
-        spacing={6}
-        sx={{
-          margin : "auto",
-          zIndex : 1,
-          display: "flex",
-          flexDirection: { xs: "column", sm: "row" }, // Stack on small screens, row on larger
-          justifyContent: "center",
-          alignItems: "center",
-          width: "100%", // Full width
-          padding: { xs: "0 40px", sm: "0 60px" }, // Adjust padding for different screen sizes
-        }}
-      >
-        {/* Left Side: Title, Text, and Button */}
-        <Grid item xs={12} sm={6}>
-          <Typography
-            variant="h2"
-            component="h1"
-            sx={{
-              textAlign: "left",
-              fontWeight: 700,
-              mb: 2,
-              color: "#3f3c3c",
-              letterSpacing: ".2px",
-              whiteSpace: "nowrap", // Prevent text from wrapping
-              fontSize: { xs: "1.5rem", sm: "2rem", md: "3rem" }, // Adjust font size for small screens
-            }}
-          >
-            Welcome to
+      <Box sx={{ width: "100%", px: { xs: 3, lg: 8 }, mx: "auto" }}>
+        <Grid
+          container
+          spacing={6}
+          alignItems="center"
+          justifyContent="space-between"
+          
+        >
+          {/* Left Side: Title, Text, and Buttons */}
+          <Grid item xs={12} md={7}>
             <Typography
-              component="span"
+              variant="h2"
+              component="h1"
               sx={{
-                fontFamily: "'Monoton', cursive", // Custom font for Istosy
-                background: "#3895D3", // Gradient effect
-                WebkitBackgroundClip: "text", // Clip gradient to text
-                WebkitTextFillColor: "transparent", // Transparent fill
-                letterSpacing: "0.1em", // Spacing between letters
-                fontSize: "1.2em", // Slightly larger than surrounding text
+                fontWeight: 700,
+                color: "#3f3c3c",
+                mb: 2,
+                textAlign: { xs: "center", md: "left" },
+                fontSize: { xs: "2rem", md: "3rem", lg: "4rem" },
               }}
             >
-              &nbsp;Istosy
+              Welcome to
+              <Typography
+                component="span"
+                sx={{
+                  display: "inline-block",
+                  fontFamily: "'Monoton', cursive",
+                  background: "#3895D3",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  ml: 2,
+                  fontSize: { xs: "2rem", md: "3rem", lg: "4rem" },
+                  
+                }}
+              >
+                Istosy
+              </Typography>
             </Typography>
-          </Typography>
 
-          <Typography
-            variant="h5"
-            sx={{
-              mb: 4,
-              color: "gray", // Darker color for better contrast
-              letterSpacing: ".8px",
-              fontFamily: "'Roboto', sans-serif", // Custom font for modern look
-              fontWeight: 600, // Semi-bold for a stronger emphasis
-              lineHeight: 1.5, // Increased line-height for better readability
-              fontSize: { xs: "0.9rem", sm: "1rem", md: "1.25rem" }, // Adjust font size for mobile
-            }}
-          >
-            Exclusive technology to provide IT solutions
-            <br />
-            Empowering your business with cutting-edge tools and strategies.
-          </Typography>
-
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: { xs: "column", sm: "row" },
-              justifyContent: { xs: "center", sm: "flex-start" }, // Align buttons better on small screens
-              gap: { xs: 2, sm: 3 }, // Add space between buttons
-            }}
-          >
-            <Button
+            <Typography
+              variant="body1"
               sx={{
-                background: "#3895D3",
-                color: "#fff",
-                padding: "12px 40px",
-                border: "2px solid transparent",
-                transition: "all 0.4s ease",
-                "&:hover": {
-                  backgroundColor: "#fff",
-                  color: "#3895D3",
-                  borderColor: "#3895D3",
-                  transform: "scale(1.05)",
-                },
+                color: "gray",
+                mb: 4,
+                fontWeight: 500,
+                textAlign: { xs: "center", md: "left" },
+                fontSize: { xs: "1rem", md: "1.25rem" },
               }}
             >
-              Get Started
-            </Button>
-            <Button
+              Exclusive technology to provide IT solutions.
+              <br />
+              Empowering your business with cutting-edge tools and strategies.
+            </Typography>
+
+            <Box
               sx={{
-                background: "#3895D3",
-                color: "#fff",
-                padding: "12px 40px",
-                border: "2px solid transparent",
-                transition: "all 0.4s ease",
-                "&:hover": {
-                  backgroundColor: "#fff",
-                  color: "#3895D3",
-                  borderColor: "#3895D3",
-                  transform: "scale(1.05)",
-                },
+                display: "flex",
+                flexDirection: { xs: "column", sm: "row" },
+                gap: 2,
+                justifyContent: { xs: "center", md: "flex-start" },
               }}
             >
-              Quick Support
-            </Button>
-          </Box>
-        </Grid>
+              <Button
+                variant="contained"
+                sx={{
+                  backgroundColor: "#3895D3",
+                  color: "white",
+                  px: 5,
+                  py: 1,
+                  borderRadius: 1,
+                  transition: "all 0.3s ease",
+                  fontSize: { xs: "0.875rem", md: "1rem" },
+                  "&:hover": {
+                    backgroundColor: "white",
+                    color: "#3895D3",
+                    border: "2px solid #3895D3",
+                  },
+                }}
+              >
+                Get Started
+              </Button>
+              <Button
+                variant="contained"
+                sx={{
+                  backgroundColor: "#3895D3",
+                  color: "white",
+                  px: 5,
+                  py: 1,
+                  borderRadius: 1,
+                  transition: "all 0.3s ease",
+                  fontSize: { xs: "0.875rem", md: "1rem" },
+                  "&:hover": {
+                    backgroundColor: "white",
+                    color: "#3895D3",
+                    border: "2px solid #3895D3",
+                  },
+                }}
+              >
+                Quick Support
+              </Button>
+            </Box>
+          </Grid>
 
-        {/* Right Side: Image */}
-        <Grid item xs={12} sm={6} sx={{ position: "relative", width: "100%", height: "auto" }}>
-          <Image
-            src={heroImage} // Correct path to your image
-            alt="hero"
-            layout="responsive" // Ensures the image resizes according to screen size
-            width={1500}
-            height={800}
-            className={styles.heroImage} // Apply CSS module class
-          />
+          {/* Right Side: Image */}
+          <Grid item xs={12} md={5}>
+            <Box sx={{ position: "relative", width: "100%", height: "auto" }}>
+              <Image
+                src={heroImage}
+                alt="Hero"
+                className={styles.heroImage}
+                priority={true}
+                placeholder="blur"
+              />
+            </Box>
+          </Grid>
         </Grid>
-      </Grid>
+      </Box>
     </Box>
   );
-}
+};
 
 export default Hero;
