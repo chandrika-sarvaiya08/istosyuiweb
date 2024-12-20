@@ -1,0 +1,63 @@
+/* Hero.module.css */
+.heroImage {
+    border-radius: 8px;
+    object-fit: cover;
+    width: 100%;
+    animation: jumpEffect 3s infinite;
+    height: 100%;
+  }
+  
+  @keyframes jumpEffect {
+    0% {
+      transform: translateY(0); /* Start position */
+    }
+    50% {
+      transform: translateY(-30px); /* Move up */
+    }
+    100% {
+      transform: translateY(0); /* Back to start position */
+    }
+  }
+
+
+
+  /* Hero.module.css */
+
+.hero-container {
+    display: flex; /* Flexbox for centering content */
+    align-items: center; /* Vertically center content */
+    justify-content: center; /* Horizontally center content */
+    position: relative; /* To position the pseudo-elements */
+    background-size: cover; /* Ensure background covers the whole container */
+    background-position: center; /* Center the background image */
+    overflow: hidden; /* Prevent overflow of pseudo-elements */
+    min-height: 100vh; /* Set minimum height to 100vh (full viewport height) */
+  }
+  
+  .hero-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    background-image: radial-gradient(circle, rgba(19, 117, 208, 0.3) 1.5px, transparent 1px);
+    background-size: 20px 20px; /* Size of the dots */
+    animation: moveDots 6s linear infinite; /* Animate the dots */
+    z-index: 1;
+  }
+  
+  @keyframes moveDots {
+    0% {
+      background-position: 0 0; /* Start position */
+    }
+    100% {
+      background-position: 100px 0px; /* End position */
+    }
+  }
+  
+  /* .css-1b3l6lk-MuiGrid-root{
+    padding-left: "0";
+  } */
+  

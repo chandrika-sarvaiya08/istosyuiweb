@@ -1,65 +1,65 @@
 // "use client";
-// import * as React from 'react';
-// import AppBar from '@mui/material/AppBar';
-// import Box from '@mui/material/Box';
-// import Toolbar from '@mui/material/Toolbar';
-// import IconButton from '@mui/material/IconButton';
-// import Typography from '@mui/material/Typography';
-// import Menu from '@mui/material/Menu';
-// import MenuIcon from '@mui/icons-material/Menu';
-// import Container from '@mui/material/Container';
-// import Avatar from '@mui/material/Avatar';
-// import Button from '@mui/material/Button';
-// import Tooltip from '@mui/material/Tooltip';
-// import MenuItem from '@mui/material/MenuItem';
-// import AdbIcon from '@mui/icons-material/Adb';
+// import * as React from "react";
+// import AppBar from "@mui/material/AppBar";
+// import Box from "@mui/material/Box";
+// import Toolbar from "@mui/material/Toolbar";
+// import IconButton from "@mui/material/IconButton";
+// import Typography from "@mui/material/Typography";
+// import Menu from "@mui/material/Menu";
+// import MenuIcon from "@mui/icons-material/Menu";
+// import Container from "@mui/material/Container";
+// import Button from "@mui/material/Button";
+// import MenuItem from "@mui/material/MenuItem";
+// import ComputerOutlinedIcon from "@mui/icons-material/ComputerOutlined"; // IT-related logo icon
+// import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
-// const pages = ['Products', 'Pricing', 'Blog'];
-// const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+// const pages = ["Home", "Services", "About", "Portfolio", "Contact"];
 
 // function Header() {
 //   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-//   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
 //   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
 //     setAnchorElNav(event.currentTarget);
-//   };
-//   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-//     setAnchorElUser(event.currentTarget);
 //   };
 
 //   const handleCloseNavMenu = () => {
 //     setAnchorElNav(null);
 //   };
 
-//   const handleCloseUserMenu = () => {
-//     setAnchorElUser(null);
-//   };
-
 //   return (
-//     <AppBar position="static">
+//     <AppBar position="sticky" sx={{ backgroundColor: " #3895D3", zIndex: 1300, padding: "10px 0px" }}>
 //       <Container maxWidth="xl">
 //         <Toolbar disableGutters>
-//           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-//           <Typography
-//             variant="h6"
-//             noWrap
-//             component="a"
-//             href="#app-bar-with-responsive-menu"
+//           {/* Logo */}
+//           <ComputerOutlinedIcon
 //             sx={{
-//               mr: 2,
-//               display: { xs: 'none', md: 'flex' },
-//               fontFamily: 'monospace',
-//               fontWeight: 700,
-//               letterSpacing: '.3rem',
-//               color: 'inherit',
-//               textDecoration: 'none',
+//               display: { xs: "none", md: "flex" },
+//               mr: 1,
+//               fontSize: "2rem", // Adjust size of the icon
+//               color: "white",
 //             }}
-//           >
-//             LOGO
-//           </Typography>
+//           />
+//           <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+//             <Typography
+//               variant="h6"
+//               noWrap
+//               component="a"
+//               href="#"
+//               sx={{
+//                 color: "white",
+//                 fontFamily: "monospace",
+//                 fontWeight: 700,
+//                 letterSpacing: ".3rem",
+//                 textDecoration: "none",
+//                 fontSize: { xs: "22px", sm: "26px" }, // Adjust font size based on screen size
+//               }}
+//             >
+//               Istosy<span>.</span>
+//             </Typography>
+//           </Box>
 
-//           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+//           {/* Mobile Menu */}
+//           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
 //             <IconButton
 //               size="large"
 //               aria-label="account of current user"
@@ -74,144 +74,172 @@
 //               id="menu-appbar"
 //               anchorEl={anchorElNav}
 //               anchorOrigin={{
-//                 vertical: 'bottom',
-//                 horizontal: 'left',
+//                 vertical: "bottom",
+//                 horizontal: "left",
 //               }}
 //               keepMounted
 //               transformOrigin={{
-//                 vertical: 'top',
-//                 horizontal: 'left',
+//                 vertical: "top",
+//                 horizontal: "left",
 //               }}
 //               open={Boolean(anchorElNav)}
 //               onClose={handleCloseNavMenu}
-//               sx={{ display: { xs: 'block', md: 'none' } }}
+//               sx={{ display: { xs: "block", md: "none" } }}
 //             >
 //               {pages.map((page) => (
 //                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-//                   <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
+//                   <Typography sx={{ textAlign: "center" }}>{page}</Typography>
 //                 </MenuItem>
 //               ))}
 //             </Menu>
 //           </Box>
-//           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-//           <Typography
-//             variant="h5"
-//             noWrap
-//             component="a"
-//             href="#app-bar-with-responsive-menu"
+
+//           {/* Desktop Menu */}
+//           <Box
 //             sx={{
-//               mr: 2,
-//               display: { xs: 'flex', md: 'none' },
 //               flexGrow: 1,
-//               fontFamily: 'monospace',
-//               fontWeight: 700,
-//               letterSpacing: '.3rem',
-//               color: 'inherit',
-//               textDecoration: 'none',
+//               display: { xs: "none", md: "flex" },
+//               justifyContent: "center", // Centering the menu
 //             }}
 //           >
-//             LOGO
-//           </Typography>
-//           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
 //             {pages.map((page) => (
-//               <Button
-//                 key={page}
-//                 onClick={handleCloseNavMenu}
-//                 sx={{ my: 2, color: 'white', display: 'block' }}
-//               >
-//                 {page}
-//               </Button>
+//               <Box key={page} sx={{ display: "inline-block", marginX: 2 }}>
+//                 <a
+//                   href={`#${page.toLowerCase()}`}
+//                   style={{
+//                     color: "white",
+//                     textDecoration: "none",
+//                     fontSize: "16px",
+//                     position: "relative",
+//                     padding: "0 4px", // Optional for spacing
+//                   }}
+//                   className="nav-link"
+//                 >
+//                   {page} <ArrowDropDownIcon />
+//                 </a>
+//               </Box>
 //             ))}
 //           </Box>
-//           <Box sx={{ flexGrow: 0 }}>
-//             <Tooltip title="Open settings">
-//               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-//                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-//               </IconButton>
-//             </Tooltip>
-//             <Menu
-//               sx={{ mt: '45px' }}
-//               id="menu-appbar"
-//               anchorEl={anchorElUser}
-//               anchorOrigin={{
-//                 vertical: 'top',
-//                 horizontal: 'right',
+
+//           {/* Get Started Button */}
+//           {/* <Button
+//             sx={{
+//               background: "#fff",
+//               ml: 2,
+//               padding: "10px 30px", // Adjust padding for smaller screens
+//               "&:hover": {
+//                 backgroundColor: "#0056b3",
+//                 color: "#fff",
+//                 transition: ".4s",
+//               },
+//             }}
+//           >
+//             Get Started
+//           </Button> */}
+//           <Button
+//               sx={{
+//                 background: "#3895D3",
+//                 color: "#fff",
+//                 padding: "12px 40px",
+//                 zIndex: 3, // Ensure button stays above overlay
+//                 border: "2px solid #fff", // Initially no border, just transparent
+//                 transition: "all 0.4s ease", // Smooth transition for all properties
+//                 "&:hover": {
+//                   backgroundColor: "#fff",
+//                   color: "#3895D3",
+//                   borderColor: "#3895D3", // Add border color on hover
+//                   transform: "scale(1.05)", // Optional: Slightly increase size on hover for better effect
+//                 },
 //               }}
-//               keepMounted
-//               transformOrigin={{
-//                 vertical: 'top',
-//                 horizontal: 'right',
-//               }}
-//               open={Boolean(anchorElUser)}
-//               onClose={handleCloseUserMenu}
 //             >
-//               {settings.map((setting) => (
-//                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-//                   <Typography sx={{ textAlign: 'center' }}>{setting}</Typography>
-//                 </MenuItem>
-//               ))}
-//             </Menu>
-//           </Box>
+//               Get Started
+//             </Button>
 //         </Toolbar>
 //       </Container>
 //     </AppBar>
 //   );
 // }
+
 // export default Header;
 "use client";
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
-import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
+import * as React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import Menu from "@mui/material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
+import Container from "@mui/material/Container";
+import Button from "@mui/material/Button";
+import MenuItem from "@mui/material/MenuItem";
+import ComputerOutlinedIcon from "@mui/icons-material/ComputerOutlined"; // IT-related logo icon
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
-const pages = ['Home', 'Services', 'About', 'Portfolio', 'Contact'];
+const pages = ["Home", "Services", "About", "Portfolio", "Contact"];
 
 function Header() {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
+  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
+    null
+  );
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
-  
+
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
-  
   return (
-    <AppBar position="static" sx={{ backgroundColor: '#007BFF' }}> {/* Blue background */}
+    <AppBar
+      position="sticky"
+      sx={{ backgroundColor: "#3895D3", zIndex: 1300, padding: "10px 0px" }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          {/* Logo and Icon */}
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
+          {/* Logo */}
+          <ComputerOutlinedIcon
             sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'white',  // White color for logo text
-              textDecoration: 'none',
+              display: { xs: "none", md: "flex" },
+              mr: 1,
+              fontSize: "2rem", // Adjust size of the icon
+              color: "white",
+            }}
+          />
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
             }}
           >
-            Istosy
-          </Typography>
+            <Typography
+              variant="h6"
+              noWrap
+              component="a"
+              href="#"
+              sx={{
+                color: "white",
+                fontFamily: "monospace",
+                fontWeight: 700,
+                letterSpacing: ".3rem",
+                textDecoration: "none",
+                fontSize: { xs: "22px", sm: "26px" }, // Adjust font size based on screen size
+              }}
+            >
+              Istosy<span>.</span>
+            </Typography>
+          </Box>
 
-          {/* Mobile Menu Button */}
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          {/* Mobile Menu */}
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "flex", md: "none" },
+              justifyContent: "flex-end",
+            }}
+          >
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -226,68 +254,97 @@ function Header() {
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
+                vertical: "bottom",
+                horizontal: "left",
               }}
               keepMounted
               transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
+                vertical: "top",
+                horizontal: "left",
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
-              sx={{ display: { xs: 'block', md: 'none' } }}
+              sx={{ display: { xs: "block", md: "none" } }}
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
+                  <Typography sx={{ textAlign: "center" }}>{page}</Typography>
                 </MenuItem>
               ))}
+              {/* Add Get Started Button in the mobile menu */}
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Button
+                  sx={{
+                    background: "#3895D3",
+                    color: "#fff",
+                    padding: "12px 40px",
+                    zIndex: 3, // Ensure button stays above overlay
+                    border: "2px solid #fff", // Initially no border, just transparent
+                    transition: "all 0.4s ease", // Smooth transition for all properties
+                    "&:hover": {
+                      backgroundColor: "#fff",
+                      color: "#3895D3",
+                      borderColor: "#3895D3", // Add border color on hover
+                      transform: "scale(1.05)", // Optional: Slightly increase size on hover for better effect
+                    },
+                  }}
+                >
+                  Get Started 
+                </Button>
+              </MenuItem>
             </Menu>
           </Box>
 
           {/* Desktop Menu */}
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
+          <Box
             sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'white',  // White color for logo text
-              textDecoration: 'none',
+              display: { xs: "none", md: "flex" },
+              justifyContent: "center", // Centering the menu
             }}
           >
-            Istosy
-          </Typography>
-
-          {/* Desktop Navbar Items */}
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{
-                  my: 2,
-                  color: 'white',  // White color for the button text
-                  display: 'block',
-                  '&:hover': {
-                    backgroundColor: '#0056b3', // Hover effect: Darker Blue
-                  },
-                }}
-              >
-                {page}
-              </Button>
+              <Box key={page} sx={{ display: "inline-block", marginX: 2 }}>
+                <a
+                  href={`#${page.toLowerCase()}`}
+                  style={{
+                    color: "white",
+                    textDecoration: "none",
+                    fontSize: "16px",
+                    position: "relative",
+                    padding: "0 4px", // Optional for spacing
+                  }}
+                  className="nav-link"
+                >
+                  {page} <ArrowDropDownIcon />
+                </a>
+              </Box>
             ))}
           </Box>
-          
-            <Button>Get Started</Button>
+
+          {/* Desktop Get Started Button */}
+          <Box
+            sx={{ display: { xs: "none", md: "flex" }, alignItems: "center" }}
+          >
+            <Button
+              sx={{
+                background: "#3895D3",
+                color: "#fff",
+                padding: "12px 40px",
+                zIndex: 3, // Ensure button stays above overlay
+                border: "2px solid #fff", // Initially no border, just transparent
+                transition: "all 0.4s ease", // Smooth transition for all properties
+                "&:hover": {
+                  backgroundColor: "#fff",
+                  color: "#3895D3",
+                  borderColor: "#3895D3", // Add border color on hover
+                  transform: "scale(1.05)", // Optional: Slightly increase size on hover for better effect
+                },
+              }}
+            >
+              Get Started
+            </Button>
+          </Box>
         </Toolbar>
       </Container>
     </AppBar>
