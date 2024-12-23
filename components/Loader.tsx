@@ -5,6 +5,8 @@ import Typography from "@mui/material/Typography";
 import { keyframes } from "@mui/system";
 import Header from "./Header";
 import Hero from "./Hero";
+import Cards from "./Cards";
+import Curser from "./Curser";
 
 // Keyframe for rotating animation of gear
 const rotate = keyframes`
@@ -82,8 +84,11 @@ function Loader() {
       ) : (
         <div>
           {/* Your page content here */}
+          <Curser/>
           <Header/>
+
           <Hero/>
+          <Cards/>
         </div>
       )}
     </>

@@ -1,0 +1,46 @@
+
+
+.cards .image-container {
+  overflow: hidden;
+}
+
+.cards .image {
+  transform: scale(1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.cards:hover .image {
+  transform: scale(1.7);
+}
+.section-header .line::after {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 2px;
+  background-color: #3895d3; /* Adjust the color as needed */
+  margin: 8px auto 0; /* Center the line below the text */
+}
+
+/* In your Cards.module.css or a separate CSS file */
+.title-responsive {
+    font-size: 1.25rem; /* Default for mobile (320px) */
+  }
+  
+  @media (min-width: 375px) {
+    .title-responsive {
+      font-size: 1.5rem; /* For 375px width */
+    }
+  }
+  
+  @media (min-width: 425px) {   
+    .title-responsive {
+      font-size: 1.75rem; /* For 425px width */
+    }
+  }
+  
+  @media (min-width: 640px) {
+    .title-responsive {
+      font-size: 2rem; /* For larger screens */
+    }
+  }
+  
