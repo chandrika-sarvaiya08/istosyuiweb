@@ -12,7 +12,6 @@ import CommentIcon from "@mui/icons-material/Comment";
 import IconButton from "@mui/material/IconButton";
 import { Box, Button } from "@mui/material";
 
-import "../styles/Cards.module.css";
 
 interface Post {
   id: number;
