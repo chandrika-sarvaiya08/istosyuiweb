@@ -84,9 +84,8 @@ const Cards: FC = () => {
         <Grid container spacing={4} className="mt-8">
           {posts.map((post) => (
             <Grid item xs={12} sm={6} md={4} key={post.id}>
-              <Card className="cards rounded-xl overflow-hidden bg-white shadow-md hover:shadow-lg transition-shadow">
-                
-                <CardMedia className="relative overflow-hidden group">
+              <Card className="cards overflow-hidden bg-white shadow-md hover:shadow-lg transition-shadow relative group">
+                <CardMedia className="relative overflow-hidden">
                   <Image
                     src={post.imgSrc}
                     alt={post.title}
@@ -94,15 +93,19 @@ const Cards: FC = () => {
                     width={500}
                     height={400}
                   />
-                  <Box className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  
-                    <Box className="flex space-x-4 mt-4">
-                      <IconButton sx={{ color: "#fff" }}>
-                        <ThumbUpIcon />
-                      </IconButton>
-                      <IconButton sx={{ color: "#fff" }}>
-                        <CommentIcon />
-                      </IconButton>
+                  {/* Gradient Overlay */}
+                  <Box className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-t from-[#3895D3] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <Box className="flex space-x-4">
+                      <Box className="w-12 h-12 flex items-center justify-center bg-white rounded-lg shadow-lg transform transition-transform duration-300 group-hover:scale-110">
+                        <IconButton sx={{ color: "#3895D3" }}>
+                          <ThumbUpIcon />
+                        </IconButton>
+                      </Box>
+                      <Box className="w-12 h-12 flex items-center justify-center bg-white rounded-lg shadow-lg transform transition-transform duration-300 group-hover:scale-110">
+                        <IconButton sx={{ color: "#3895D3" }}>
+                          <CommentIcon />
+                        </IconButton>
+                      </Box>
                     </Box>
                   </Box>
                 </CardMedia>
@@ -145,8 +148,42 @@ const Cards: FC = () => {
                       </Typography>
                     </Typography>
                   </Typography>
-                  
-                  <Button sx={{}}><a href="#">Read more  <span style={{fontSize:"35px"}}>+</span></a> </Button>
+                 
+                  <Button
+                    sx={{
+                      marginTop: "20px",
+                      textTransform: "uppercase",
+                      // fontWeight: "bold",
+                      color: "white",
+                      backgroundColor: "#3895D3",
+                      borderRadius: "8px",
+                      padding: "8px 18px",
+                      fontSize: "14px",
+                      boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+                      transition: "all 0.3s ease",
+                      "&:hover": {
+                        backgroundColor: "#2a78b2",
+                        transform: "translateY(-2px)",
+                        boxShadow: "0px 6px 8px rgba(0, 0, 0, 0.15)",
+                      },
+                    }}
+                  >
+                    <a
+                      href="#"
+                      style={{
+                        textDecoration: "none",
+                        color: "inherit",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "8px",
+                      }}
+                    >
+                      Read More{" "}
+                      <span style={{ fontSize: "20px", lineHeight: "0" }}>
+                        +
+                      </span>
+                    </a>
+                  </Button>
                 </CardContent>
               </Card>
             </Grid>

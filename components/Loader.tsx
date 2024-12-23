@@ -7,6 +7,7 @@ import Header from "./Header";
 import Hero from "./Hero";
 import Cards from "./Cards";
 import Curser from "./Curser";
+import Testimonial from "./Testimonial";
 
 // Keyframe for rotating animation of gear
 const rotate = keyframes`
@@ -89,6 +90,7 @@ function Loader() {
 
           <Hero/>
           <Cards/>
+          <Testimonial/>
         </div>
       )}
     </>
